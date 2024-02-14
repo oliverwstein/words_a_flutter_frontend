@@ -89,6 +89,30 @@ Future<void> _calculateDifference() async {
     });
   }
 }
+Future<void> _calculateDifferences() async {
+  var url = Uri.parse('$_baseUrl/differences'); // Ensure this matches your Flask endpoint
+  debugPrint('Request URL: $url');
+  var response = await http.post(
+    url,
+    headers: {"Content-Type": "application/json"},
+    body: jsonEncode({
+      'word1': _firstWordController.text,
+      'word2': _secondWordController.text,
+    }),
+  );
+
+  if (response.statusCode == 200) {
+    final data = json.decode(response.body);
+    setState(() {
+      _differenceResult = "Result: ${data['results']}";
+    });
+  } else {
+    // Handle error or show a message
+    setState(() {
+      _differenceResult = "Error calculating difference";
+    });
+  }
+}
 
 
   @override
@@ -129,8 +153,8 @@ Future<void> _calculateDifference() async {
             ],
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: _calculateDifference,
-              child: const Text('Calculate Difference'),
+              onPressed: _calculateDifferences,
+              child: const Text('Calculate Differences'),
             ),
             if (_differenceResult.isNotEmpty) ...[
               const SizedBox(height: 8),
