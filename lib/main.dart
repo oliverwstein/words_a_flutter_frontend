@@ -13,19 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, List<double>> examplePoints = {
-      "Hello": [1.0, 2.0, 3.0],
-      "World": [-1.0, -2.0, -3.0],
-      "Flutter": [2.0, -1.0, 1.0],
-      "Dart": [-2.0, 1.0, -1.0]
-    };
     return MaterialApp(
       title: '3D Points Visualization',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: ThreeDPointsProjection(points: examplePoints,), // Instantiate your ThreeDPointsProjection widget here
+      home: const Word2VecExplorer(), // Instantiate your ThreeDPointsProjection widget here
     );
   }
 }

@@ -46,7 +46,6 @@ class _ThreeDPointsProjectionState extends State<ThreeDPointsProjection> {
 
     await three3dRender.initialize(options: options);
     await three3dRender.prepareContext();
-
     setState(() {
       initScene();
     });
@@ -56,7 +55,8 @@ class _ThreeDPointsProjectionState extends State<ThreeDPointsProjection> {
     scene = three.Scene();
     camera = three.PerspectiveCamera(75, width / height, 0.1, 1000);
     camera.position.z = 5;
-
+    assert(three3dRender.element != null);
+    assert(three3dRender.gl != null);
     renderer = three.WebGLRenderer({"canvas": three3dRender.element, "context": three3dRender.gl});
     renderer.setSize(width, height);
 
