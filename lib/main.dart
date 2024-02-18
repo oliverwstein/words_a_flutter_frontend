@@ -52,6 +52,7 @@ class _Word2VecExplorerState extends State<Word2VecExplorer> {
     if (response.statusCode == 200) {
       setState(() {
         _secretWord = json.decode(response.body)['random_word'];
+        debugPrint(_secretWord);
         _hints.clear();
         _currentHintIndex = -1; // Reset to -1 to prepare for the first hint
         _getHintsForWord(_secretWord);
