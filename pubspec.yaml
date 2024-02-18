@@ -9,7 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.2.0
+  flutter_gl: ^0.0.21
+  http: ^0.13.4
+  three_dart: ^0.0.16
+  three_dart_jsm: ^0.0.10
+  webview_flutter: ^3.0.4
+  google_fonts: ^3.0.1
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
